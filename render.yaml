@@ -2,7 +2,7 @@ services:
   - type: web
     name: ecomerce-clothes
     env: docker
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./ecomerce.clothes/Dockerfile
     dockerContext: .
     plan: free
     region: oregon
