@@ -3,18 +3,25 @@ package com.khanhdev.be_shopping_clothes.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 @Entity
 @Table(name = "users")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(unique = true)
+    private String email;
+
+    private String password;
+
+    private String phone;
+
+    @Column(name = "created_at")
+    private String createdAt;
 }
