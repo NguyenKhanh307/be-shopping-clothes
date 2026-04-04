@@ -4,6 +4,7 @@ package com.khanhdev.be_shopping_clothes.controller;
 import com.khanhdev.be_shopping_clothes.dto.AuthRequest;
 import com.khanhdev.be_shopping_clothes.dto.RegisterRequest;
 import com.khanhdev.be_shopping_clothes.service.AuthService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,5 +31,10 @@ public class AuthController {
     @PostMapping("/forgot")
     public String forgot(@RequestParam String email) {
         return authService.forgotPassword(email);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout() {
+        return ResponseEntity.ok("Logout success");
     }
 }
