@@ -55,6 +55,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Spring Security (dùng BCryptPasswordEncoder để hash mật khẩu) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
