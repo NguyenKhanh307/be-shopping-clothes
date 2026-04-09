@@ -70,4 +70,14 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
         ORDER BY p.discountPercent DESC
     """)
     List<Product> findSpecial();
+
+    // Tìm kiếm sản phẩm theo tên (không phân biệt hoa thường, tìm kiếm gần đúng)
+    @Query("""
+        SELECT DISTINCT p FROM Product p
+        LEFT JOIN FETCH p.colors
+        WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%'))
+          AND p.isActive = true
+        ORDER BY p.name ASC
+    """)
+    List<Product> searchByName(@Param("keyword") String keyword);
 }
