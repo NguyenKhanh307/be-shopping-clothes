@@ -24,12 +24,10 @@ public class Product {
     // Quan hệ — không serialize để tránh circular
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vendor_id")
-    @JsonIgnore
     private User vendor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @JsonIgnore
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -71,7 +69,7 @@ public class Product {
     private Boolean isNew;
 
     @Column(name = "is_active")
-    @JsonIgnore
+
     private Boolean isActive;
 
     private String description;
