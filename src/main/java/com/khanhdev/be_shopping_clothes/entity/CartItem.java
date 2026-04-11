@@ -1,6 +1,7 @@
 package com.khanhdev.be_shopping_clothes.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.Transient;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,11 +23,17 @@ public class CartItem {
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
-    @JsonIgnore
+    @JsonBackReference
     private Cart cart;
 
     private Long productId;
     private Integer quantity;
     private String color;
     private Double price;
+
+    @Transient
+    private String productName;
+
+    @Transient
+    private String imageUrl;
 }

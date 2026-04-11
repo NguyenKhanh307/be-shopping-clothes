@@ -7,4 +7,5 @@ public interface CartService {
     void addToCart(Long userId, Long productId, Integer quantity, String color);
     void updateQuantity(Long itemId, Integer quantity);
     void removeItem(Long itemId);
+    void clearCart(Long userId);
 }
