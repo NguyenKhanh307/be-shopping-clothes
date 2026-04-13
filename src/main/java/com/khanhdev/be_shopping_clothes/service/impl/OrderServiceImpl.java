@@ -47,6 +47,11 @@ public class OrderServiceImpl implements OrderService {
             finalAddress = user.getAddress();
         }
 
+        // Validate địa chỉ cuối cùng - Nếu vẫn trống thì gán địa chỉ mặc định để tránh lỗi 500
+        if (finalAddress == null || finalAddress.trim().isEmpty()) {
+            finalAddress = "Địa chỉ mặc định (Vui lòng cập nhật hồ sơ)";
+        }
+
         // Tạo Order
         Order order = new Order();
         order.setCustomerId(customerId);

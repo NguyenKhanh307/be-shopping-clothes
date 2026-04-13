@@ -31,6 +31,8 @@ public class OrderController {
             
             Order order = orderService.createOrderFromCart(customerId, address, note);
             return ResponseEntity.status(201).body(order);
+        } catch (com.khanhdev.be_shopping_clothes.exception.ResourceNotFoundException e) {
+            return ResponseEntity.status(404).body(Map.of("message", e.getMessage()));
         } catch (IllegalStateException e) {
             return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
         } catch (Exception e) {
